@@ -1,6 +1,7 @@
 
 <%@ page import="java.util.HashMap" %>
-<%@ page import="com.example.assigment1.assigment.entity.Food" %><%--
+<%@ page import="com.example.assigment1.assigment.entity.Food" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: it
   Date: 12/7/2021
@@ -11,34 +12,37 @@
   request.setCharacterEncoding("utf-8");
   Food food = (Food) request.getAttribute("product");
 %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <jsp:include page="../include/head.jsp">
-    <jsp:param name="title" value="Tạo Sản Phẩm"/>
+  <jsp:include page="/include/head.jsp">
+    <jsp:param name="title" value="Tạo sản phẩm"/>
   </jsp:include>
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
-
+  <!-- Navbar -->
   <jsp:include page="/include/header.jsp"/>
 
-  <jsp:include page="/include/aside/aside.jsp"/>
+  <jsp:include page="../include/aside/aside.jsp"/>
 
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Product</h1>
-            <a href="/admin/list">Back To List</a>
+            <h1>Simple Tables</h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">List Products</li>
+            </ol>
           </div>
         </div>
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -49,36 +53,34 @@
               <!-- form start -->
               <form action="/admin/create" method="post">
                 <div class="card-body">
-                 <%-- <div class="form-group" hidden>
-                    <label for="ID"> ID</label>
-                    <input type="text" name="ID" class="form-control" id="ID">
-                  </div>--%>
+                  <%-- <div class="form-group" hidden>
+                     <label for="ID"> ID</label>
+                     <input type="text" name="ID" class="form-control" id="ID">
+                   </div>--%>
                   <div class="form-group">
-                    <label for="ProductName">Food Name</label>
-                    <input type="text" name="name" class="form-control" value="<%= food.getName()%>" id="ProductName">
-
+                    <label for="ProductName">Product Name</label>
+                    <input type="text" name="name" class="form-control"  id="ProductName">
                   </div>
                   <div class="form-group">
                     <label for="Description">Description</label>
-                    <input type="text" name="description" id="Description" class="form-control" value="<%= food.getDescription()%>" />
-
+                    <input type="text" name="description" id="Description" class="form-control"  />
                   </div>
                   <div class="form-group">
                     <label for="Price">Price</label>
-                    <input type="text" name="price" class="form-control" value="<%= food.getPrice()%>" id="Price">
+                    <input type="text" name="price" class="form-control"  id="Price">
                   </div>
                   <div class="form-group">
                     <label for="Image">Image</label>
-                    <input type="text" name="image" class="form-control" value="<%= food.getThumbnail()%>" id="Image">
+                    <input type="text" name="image" class="form-control"  id="Image">
                   </div>
                   <div class="form-group">
                     <label for="Status">Status</label>
-                    <input type="number" name="status" class="form-control" value="<%= food.getStatus()%>" id="Status">
+                    <input type="number" name="status" class="form-control" id="Status">
                   </div>
-                   <div class="form-group">
-                     <label for="Status">Status</label>
-                     <input type="number" name="categoryId" class="form-control" value="<%= food.getCategoryId()%>" id="CategoryId">
-                   </div>
+                    <div class="form-group">
+                      <label for="Status">Category ID</label>
+                      <input type="number" name="categoryId" class="form-control" id="categoryId">
+                    </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
@@ -89,24 +91,9 @@
           </div>
 
         </div>
-        <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
-    <!-- /.content -->
   </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.1.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
 
