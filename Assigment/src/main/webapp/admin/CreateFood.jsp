@@ -11,6 +11,7 @@
 <%
   request.setCharacterEncoding("utf-8");
   Food food = (Food) request.getAttribute("product");
+  food = new Food();
 %>
 
 <!DOCTYPE html>
@@ -59,27 +60,27 @@
                    </div>--%>
                   <div class="form-group">
                     <label for="ProductName">Product Name</label>
-                    <input type="text" name="name" class="form-control"  id="ProductName">
+                    <input type="text" name="name" class="form-control" <%= food.getName()%>  id="ProductName">
                   </div>
                   <div class="form-group">
                     <label for="Description">Description</label>
-                    <input type="text" name="description" id="Description" class="form-control"  />
+                    <input type="text" name="description" id="Description" <%= food.getDescription()%> class="form-control"  />
                   </div>
                   <div class="form-group">
                     <label for="Price">Price</label>
-                    <input type="text" name="price" class="form-control"  id="Price">
+                    <input type="text" name="price" class="form-control" <%= food.getPrice()%>  id="Price">
                   </div>
                   <div class="form-group">
                     <label for="Image">Image</label>
-                    <input type="text" name="image" class="form-control"  id="Image">
+                    <input type="text" name="image" class="form-control" <%= food.getThumbnail()%> id="Image">
                   </div>
                   <div class="form-group">
                     <label for="Status">Status</label>
-                    <input type="number" name="status" class="form-control" id="Status">
+                    <input type="number" name="status" class="form-control" <%= food.getStatus()%> id="Status">
                   </div>
                     <div class="form-group">
                       <label for="Status">Category ID</label>
-                      <input type="number" name="categoryId" class="form-control" id="categoryId">
+                      <input type="number" name="categoryId" class="form-control" <%= food.getCategoryId()%> id="categoryId">
                     </div>
                 </div>
                 <!-- /.card-body -->
